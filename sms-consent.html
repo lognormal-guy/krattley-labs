@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMS Consent | Krattley Labs</title>
+<meta name="description" content="How Krattley Labs collects consent to send text message notifications.">
+<style>
+  :root {
+    --bg: #f6f5f1; --card: #ffffff; --text: #1f2328; --muted: #5b626b;
+    --accent: #2f6f5e; --accent-soft: #e6f0ec; --border: #e2e0d8; --quote-bg: #fbfaf6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15181b; --card: #1d2125; --text: #e6e8ea; --muted: #a2a9b1;
+      --accent: #7cc4ad; --accent-soft: #1f312b; --border: #2e3439; --quote-bg: #191d20;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px; line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--border); background: var(--card); }
+  .topbar .inner {
+    max-width: 760px; margin: 0 auto; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  .logo { font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; font-size: 18px; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; margin-left: 18px; }
+  nav a:first-child { margin-left: 0; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 16px 56px; }
+  header.page { margin-bottom: 28px; }
+  .eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 8px;
+  }
+  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 12px; }
+  .lede { color: var(--muted); margin: 0; font-size: 18px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0; }
+  section {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; margin-bottom: 20px;
+  }
+  h2 { font-size: 20px; margin: 0 0 12px; }
+  h3 { font-size: 17px; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  p:last-child { margin-bottom: 0; }
+  ol, ul { margin: 0; padding-left: 22px; }
+  li { margin-bottom: 10px; }
+  li:last-child { margin-bottom: 0; }
+  blockquote {
+    margin: 16px 0 0; padding: 20px 22px; background: var(--quote-bg);
+    border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; font-size: 17.5px;
+  }
+  .sms {
+    display: block; margin-top: 8px; padding: 12px 16px; background: var(--accent-soft);
+    border-radius: 16px 16px 16px 4px; font-size: 15.5px; max-width: 520px;
+  }
+  .kw {
+    display: inline-block; font-weight: 700; font-size: 14px; padding: 1px 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    border: 1px solid var(--accent); border-radius: 6px; color: var(--accent);
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .tile {
+    display: block; padding: 16px 18px; border: 1px solid var(--border); border-radius: 10px;
+    text-decoration: none; color: var(--text); background: var(--quote-bg);
+  }
+  .tile:hover { border-color: var(--accent); }
+  .tile h3 { color: var(--accent); }
+  .tile p { color: var(--muted); font-size: 15px; margin: 0; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent); margin-left: 8px; vertical-align: middle;
+  }
+  .facts { list-style: none; padding: 0; }
+  .facts li { padding-left: 0; }
+  footer {
+    max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 14px; text-align: center;
+  }
+  footer p { margin: 6px 0; }
+  footer a { margin: 0 8px; }
+  @media (max-width: 520px) {
+    h1 { font-size: 28px; }
+    section { padding: 20px 18px; }
+    nav a { margin-left: 12px; font-size: 14px; }
+  }
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="inner">
+    <a class="logo" href="/">Krattley <span>Labs</span></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/meals">Meals</a>
+      <a href="/sms-consent" aria-current="page">SMS Consent</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </div>
+</div>
+
+<main class="wrap">
+<header class="page">
+    <p class="eyebrow">Policy</p>
+    <h1>SMS Consent</h1>
+    <p class="lede">Krattley Labs is a personal hobby project that builds small apps for family and friends. Some of these apps send text notifications. We only text people who have agreed to receive messages, using the process below.</p>
+  </header>
+
+  <section>
+    <h2>How consent is collected</h2>
+    <p>Consent is collected verbally and in person. Before adding anyone's number, the Krattley Labs owner reads this script word for word:</p>
+    <blockquote>
+      "Krattley Labs would like to send you text message notifications from its apps, such as reminders and account updates. You'll get up to 100 messages a month. Message and data rates may apply. You can reply HELP at any time for help, or reply STOP to stop receiving messages. Agreeing is optional, and you can still use the apps without texts. You can read the Terms at krattley.net/terms and the Privacy Policy at krattley.net/privacy. Your mobile number will not be shared with third parties. Do you agree to receive text messages from Krattley Labs? Please answer yes or no."
+    </blockquote>
+  </section>
+
+  <section>
+    <h2>What happens next</h2>
+    <ol>
+      <li>If the person says no, or doesn't give a clear yes, their number is not added.</li>
+      <li>If the person says yes, the owner records their name, mobile number, and the date of consent as proof of consent. Then the number is added to the app.</li>
+      <li>The person immediately receives this confirmation text:
+        <span class="sms">Krattley Labs: You're enrolled in app notifications. Up to 100 msgs/mo. Msg &amp; data rates may apply. Reply HELP for help, STOP to opt out.</span>
+      </li>
+    </ol>
+  </section>
+
+  <section>
+    <h2>Help and opt-out</h2>
+    <ul>
+      <li>Reply <span class="kw">HELP</span> to receive:
+        <span class="sms">Krattley Labs: For help, contact dedalus74@gmail.com. Up to 100 msgs/mo. Msg &amp; data rates may apply. Reply STOP to opt out.</span>
+      </li>
+      <li>Reply <span class="kw">STOP</span> to receive:
+        <span class="sms">Krattley Labs: You've been unsubscribed and will not receive more messages. Reply START to resubscribe.</span>
+      </li>
+      <li>You can also ask the owner in person to stop texts at any time.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Privacy</h2>
+    <p>Mobile numbers and consent information are not shared with or sold to third parties or affiliates for marketing purposes. See the <a href="/privacy">Privacy Policy</a> and <a href="/terms">Terms</a> for details.</p>
+  </section>
+</main>
+
+<footer>
+  <p><a href="/sms-consent">SMS Consent</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms &amp; Conditions</a></p>
+  <p>Questions: <a href="mailto:dedalus74@gmail.com">dedalus74@gmail.com</a></p>
+  <p>&copy; 2026 Krattley Labs &middot; krattley.net</p>
+</footer>
+</body>
+</html>

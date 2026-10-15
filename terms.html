@@ -3,33 +3,145 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Terms &amp; Conditions | Krattley Labs</title>
+<title>Terms & Conditions | Krattley Labs</title>
+<meta name="description" content="Krattley Labs SMS terms and conditions.">
 <style>
-  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 680px; margin: 40px auto; padding: 0 16px; line-height: 1.6; color: #222; background: #fff; }
-  h1 { font-size: 1.8em; margin-bottom: 0.2em; }
-  h2 { font-size: 1.15em; margin-top: 1.6em; }
-  .updated { color: #666; font-size: 0.9em; }
-  a { color: #1a5fb4; }
+  :root {
+    --bg: #f6f5f1; --card: #ffffff; --text: #1f2328; --muted: #5b626b;
+    --accent: #2f6f5e; --accent-soft: #e6f0ec; --border: #e2e0d8; --quote-bg: #fbfaf6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15181b; --card: #1d2125; --text: #e6e8ea; --muted: #a2a9b1;
+      --accent: #7cc4ad; --accent-soft: #1f312b; --border: #2e3439; --quote-bg: #191d20;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px; line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--border); background: var(--card); }
+  .topbar .inner {
+    max-width: 760px; margin: 0 auto; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  .logo { font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; font-size: 18px; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; margin-left: 18px; }
+  nav a:first-child { margin-left: 0; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 16px 56px; }
+  header.page { margin-bottom: 28px; }
+  .eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 8px;
+  }
+  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 12px; }
+  .lede { color: var(--muted); margin: 0; font-size: 18px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0; }
+  section {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; margin-bottom: 20px;
+  }
+  h2 { font-size: 20px; margin: 0 0 12px; }
+  h3 { font-size: 17px; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  p:last-child { margin-bottom: 0; }
+  ol, ul { margin: 0; padding-left: 22px; }
+  li { margin-bottom: 10px; }
+  li:last-child { margin-bottom: 0; }
+  blockquote {
+    margin: 16px 0 0; padding: 20px 22px; background: var(--quote-bg);
+    border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; font-size: 17.5px;
+  }
+  .sms {
+    display: block; margin-top: 8px; padding: 12px 16px; background: var(--accent-soft);
+    border-radius: 16px 16px 16px 4px; font-size: 15.5px; max-width: 520px;
+  }
+  .kw {
+    display: inline-block; font-weight: 700; font-size: 14px; padding: 1px 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    border: 1px solid var(--accent); border-radius: 6px; color: var(--accent);
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .tile {
+    display: block; padding: 16px 18px; border: 1px solid var(--border); border-radius: 10px;
+    text-decoration: none; color: var(--text); background: var(--quote-bg);
+  }
+  .tile:hover { border-color: var(--accent); }
+  .tile h3 { color: var(--accent); }
+  .tile p { color: var(--muted); font-size: 15px; margin: 0; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent); margin-left: 8px; vertical-align: middle;
+  }
+  .facts { list-style: none; padding: 0; }
+  .facts li { padding-left: 0; }
+  footer {
+    max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 14px; text-align: center;
+  }
+  footer p { margin: 6px 0; }
+  footer a { margin: 0 8px; }
+  @media (max-width: 520px) {
+    h1 { font-size: 28px; }
+    section { padding: 20px 18px; }
+    nav a { margin-left: 12px; font-size: 14px; }
+  }
 </style>
 </head>
 <body>
-<h1>Terms &amp; Conditions</h1>
-<p class="updated">Last updated: October 14, 2026</p>
+<div class="topbar">
+  <div class="inner">
+    <a class="logo" href="/">Krattley <span>Labs</span></a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/meals">Meals</a>
+      <a href="/sms-consent">SMS Consent</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms" aria-current="page">Terms</a>
+    </nav>
+  </div>
+</div>
 
-<p>These terms apply to text messages sent by Krattley Labs, a personal, non-commercial project run by Patrick Fillmore.</p>
+<main class="wrap">
+<header class="page">
+    <p class="eyebrow">Policy</p>
+    <h1>Terms &amp; Conditions</h1>
+    <p class="updated">Last updated: October 15, 2026</p>
+  </header>
 
-<h2>SMS Terms</h2>
-<ul>
-  <li><strong>Program:</strong> Krattley Labs sends reminders, pickup notices, and app test alerts to Patrick Fillmore and his family members who have opted in.</li>
-  <li><strong>Frequency:</strong> Message frequency varies.</li>
-  <li><strong>Cost:</strong> Message and data rates may apply.</li>
-  <li><strong>Opt out:</strong> Reply STOP at any time. You will receive one confirmation message and no further texts.</li>
-  <li><strong>Help:</strong> Reply HELP, or email <a href="mailto:patrick_fillmore@live.com">patrick_fillmore@live.com</a>.</li>
-  <li>Carriers are not liable for delayed or undelivered messages.</li>
-</ul>
+  <section>
+    <p>These terms apply to text messages sent by Krattley Labs, a personal, non-commercial project run by Patrick Fillmore.</p>
+  </section>
 
-<h2>Privacy</h2>
-<p>See our <a href="privacy.html">Privacy Policy</a> for how phone numbers are collected and used.</p>
-<p><a href="index.html">Krattley Labs home</a></p>
+  <section>
+    <h2>SMS terms</h2>
+    <ul>
+      <li><strong>Program:</strong> Krattley Labs sends reminders and app notifications to family members and friends who have opted in.</li>
+      <li><strong>Opt-in:</strong> Consent is collected verbally and in person, as described on the <a href="/sms-consent">SMS Consent</a> page. Agreeing to receive texts is optional.</li>
+      <li><strong>Frequency:</strong> Up to 100 messages per month.</li>
+      <li><strong>Cost:</strong> Message and data rates may apply.</li>
+      <li><strong>Opt out:</strong> Reply <span class="kw">STOP</span> at any time. You will receive one confirmation message and no further texts.</li>
+      <li><strong>Help:</strong> Reply <span class="kw">HELP</span>, or email <a href="mailto:dedalus74@gmail.com">dedalus74@gmail.com</a>.</li>
+      <li>Carriers are not liable for delayed or undelivered messages.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Privacy</h2>
+    <p>See our <a href="/privacy">Privacy Policy</a> for how phone numbers are collected and used.</p>
+  </section>
+</main>
+
+<footer>
+  <p><a href="/sms-consent">SMS Consent</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms &amp; Conditions</a></p>
+  <p>Questions: <a href="mailto:dedalus74@gmail.com">dedalus74@gmail.com</a></p>
+  <p>&copy; 2026 Krattley Labs &middot; krattley.net</p>
+</footer>
 </body>
 </html>

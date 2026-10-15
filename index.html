@@ -6,45 +6,155 @@
 <title>Krattley Labs</title>
 <meta name="description" content="Krattley Labs is a personal, non-commercial project building small apps for family and friends.">
 <style>
-  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; max-width: 680px; margin: 40px auto; padding: 0 16px; line-height: 1.6; color: #222; background: #fff; }
-  h1 { font-size: 2.2em; margin-bottom: 0.1em; }
-  .tagline { color: #555; font-size: 1.1em; margin-top: 0; }
-  h2 { font-size: 1.15em; margin-top: 1.8em; }
-  .box { border: 1px solid #ddd; border-radius: 8px; padding: 12px 16px; background: #f8f8f8; }
-  .box p { margin: 0.4em 0; }
-  ul.pages { padding-left: 1.2em; }
-  ul.pages li { margin-bottom: 0.5em; }
-  .desc { color: #555; }
-  footer { margin-top: 2.5em; padding-top: 1em; border-top: 1px solid #ddd; font-size: 0.9em; color: #666; }
-  a { color: #1a5fb4; }
+  :root {
+    --bg: #f6f5f1; --card: #ffffff; --text: #1f2328; --muted: #5b626b;
+    --accent: #2f6f5e; --accent-soft: #e6f0ec; --border: #e2e0d8; --quote-bg: #fbfaf6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #15181b; --card: #1d2125; --text: #e6e8ea; --muted: #a2a9b1;
+      --accent: #7cc4ad; --accent-soft: #1f312b; --border: #2e3439; --quote-bg: #191d20;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 17px; line-height: 1.6;
+  }
+  a { color: var(--accent); }
+  .topbar { border-bottom: 1px solid var(--border); background: var(--card); }
+  .topbar .inner {
+    max-width: 760px; margin: 0 auto; padding: 14px 16px;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  }
+  .logo { font-weight: 700; letter-spacing: 0.02em; color: var(--text); text-decoration: none; font-size: 18px; }
+  .logo span { color: var(--accent); }
+  nav a { color: var(--muted); text-decoration: none; font-size: 15px; margin-left: 18px; }
+  nav a:first-child { margin-left: 0; }
+  nav a:hover, nav a[aria-current="page"] { color: var(--accent); }
+  .wrap { max-width: 760px; margin: 0 auto; padding: 40px 16px 56px; }
+  header.page { margin-bottom: 28px; }
+  .eyebrow {
+    font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--accent); margin: 0 0 8px;
+  }
+  h1 { font-size: 34px; line-height: 1.2; margin: 0 0 12px; }
+  .lede { color: var(--muted); margin: 0; font-size: 18px; }
+  .updated { color: var(--muted); font-size: 14px; margin: 0; }
+  section {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 24px; margin-bottom: 20px;
+  }
+  h2 { font-size: 20px; margin: 0 0 12px; }
+  h3 { font-size: 17px; margin: 0 0 4px; }
+  p { margin: 0 0 12px; }
+  p:last-child { margin-bottom: 0; }
+  ol, ul { margin: 0; padding-left: 22px; }
+  li { margin-bottom: 10px; }
+  li:last-child { margin-bottom: 0; }
+  blockquote {
+    margin: 16px 0 0; padding: 20px 22px; background: var(--quote-bg);
+    border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; font-size: 17.5px;
+  }
+  .sms {
+    display: block; margin-top: 8px; padding: 12px 16px; background: var(--accent-soft);
+    border-radius: 16px 16px 16px 4px; font-size: 15.5px; max-width: 520px;
+  }
+  .kw {
+    display: inline-block; font-weight: 700; font-size: 14px; padding: 1px 8px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    border: 1px solid var(--accent); border-radius: 6px; color: var(--accent);
+  }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; }
+  .tile {
+    display: block; padding: 16px 18px; border: 1px solid var(--border); border-radius: 10px;
+    text-decoration: none; color: var(--text); background: var(--quote-bg);
+  }
+  .tile:hover { border-color: var(--accent); }
+  .tile h3 { color: var(--accent); }
+  .tile p { color: var(--muted); font-size: 15px; margin: 0; }
+  .badge {
+    display: inline-block; font-size: 12px; font-weight: 600; letter-spacing: 0.04em;
+    text-transform: uppercase; padding: 2px 8px; border-radius: 999px;
+    background: var(--accent-soft); color: var(--accent); margin-left: 8px; vertical-align: middle;
+  }
+  .facts { list-style: none; padding: 0; }
+  .facts li { padding-left: 0; }
+  footer {
+    max-width: 760px; margin: 0 auto; padding: 24px 16px 40px; border-top: 1px solid var(--border);
+    color: var(--muted); font-size: 14px; text-align: center;
+  }
+  footer p { margin: 6px 0; }
+  footer a { margin: 0 8px; }
+  @media (max-width: 520px) {
+    h1 { font-size: 28px; }
+    section { padding: 20px 18px; }
+    nav a { margin-left: 12px; font-size: 14px; }
+  }
 </style>
 </head>
 <body>
-<h1>Krattley Labs</h1>
-<p class="tagline">Small apps for family and friends, built for fun.</p>
-
-<p>Krattley Labs is a personal, non-commercial hobby project run by Patrick Fillmore. It builds and tests small apps for household use, like reminders, notifications, and family meal credits. Nothing here is for sale, and the apps are not open to the public.</p>
-
-<h2>Apps</h2>
-<ul class="pages">
-  <li><a href="meals.html">Meals</a> <span class="desc">(coming soon): track requests to spend credits on rewards like family meals.</span></li>
-</ul>
-
-<h2>Text messages</h2>
-<div class="box">
-  <p>Krattley Labs apps send text notifications only to family members and friends who have agreed to receive them. Consent is collected verbally and in person, as described on the <a href="sms-consent">SMS Consent</a> page.</p>
-  <p>Up to 100 messages per month. Message and data rates may apply. Reply <strong>STOP</strong> to any message to opt out, or <strong>HELP</strong> for help.</p>
+<div class="topbar">
+  <div class="inner">
+    <a class="logo" href="/">Krattley <span>Labs</span></a>
+    <nav>
+      <a href="/" aria-current="page">Home</a>
+      <a href="/meals">Meals</a>
+      <a href="/sms-consent">SMS Consent</a>
+      <a href="/privacy">Privacy</a>
+      <a href="/terms">Terms</a>
+    </nav>
+  </div>
 </div>
 
-<h2>Policies</h2>
-<ul class="pages">
-  <li><a href="sms-consent">SMS Consent</a><span class="desc">: how we collect consent to send texts.</span></li>
-  <li><a href="privacy.html">Privacy Policy</a></li>
-  <li><a href="terms.html">Terms &amp; Conditions</a></li>
-</ul>
+<main class="wrap">
+<header class="page">
+    <p class="eyebrow">Krattley Labs</p>
+    <h1>Small apps for family and friends</h1>
+    <p class="lede">Krattley Labs is a personal, non-commercial hobby project run by Patrick Fillmore. It builds and tests small apps for household use, like reminders, notifications, and family meal credits.</p>
+  </header>
+
+  <section>
+    <h2>About</h2>
+    <p>Krattley Labs apps are built for a small, private group of family members and friends. Nothing here is for sale, there is no advertising, and the apps are not open to the public.</p>
+  </section>
+
+  <section>
+    <h2>Apps</h2>
+    <div class="grid">
+      <a class="tile" href="/meals">
+        <h3>Meals <span class="badge">In development</span></h3>
+        <p>Request and track family meal credits earned for achievements. Parents get a text for each request, and the requester gets a text when it's approved.</p>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Text messaging</h2>
+    <ul class="facts">
+      <li><strong>Who receives texts:</strong> Only family members and friends who have agreed to receive them.</li>
+      <li><strong>How consent is collected:</strong> Verbally and in person, using the script on the <a href="/sms-consent">SMS Consent</a> page.</li>
+      <li><strong>Frequency:</strong> Up to 100 messages per month. Message and data rates may apply.</li>
+      <li><strong>Help and opt-out:</strong> Reply <span class="kw">HELP</span> for help or <span class="kw">STOP</span> to opt out at any time.</li>
+      <li><strong>Privacy:</strong> Mobile numbers are never sold or shared with third parties for marketing.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Policies</h2>
+    <div class="grid">
+      <a class="tile" href="/sms-consent"><h3>SMS Consent</h3><p>How we collect consent to send texts.</p></a>
+      <a class="tile" href="/privacy"><h3>Privacy Policy</h3><p>What we collect and how it's used.</p></a>
+      <a class="tile" href="/terms"><h3>Terms &amp; Conditions</h3><p>SMS program terms.</p></a>
+    </div>
+  </section>
+</main>
 
 <footer>
-  &copy; 2026 Krattley Labs &middot; krattley.net &middot; <a href="mailto:dedalus74@gmail.com">dedalus74@gmail.com</a>
+  <p><a href="/sms-consent">SMS Consent</a> | <a href="/privacy">Privacy Policy</a> | <a href="/terms">Terms &amp; Conditions</a></p>
+  <p>Questions: <a href="mailto:dedalus74@gmail.com">dedalus74@gmail.com</a></p>
+  <p>&copy; 2026 Krattley Labs &middot; krattley.net</p>
 </footer>
 </body>
 </html>
