@@ -131,7 +131,7 @@
     <h2>Help and opt-out</h2>
     <ul>
       <li>Reply <span class="kw">HELP</span> to receive:
-        <span class="sms">Krattley Labs: For help, contact [YOUR EMAIL]. Up to 100 msgs/mo. Msg &amp; data rates may apply. Reply STOP to opt out.</span>
+        <span class="sms">Krattley Labs: For help, contact dedalus74@gmail.com. Up to 100 msgs/mo. Msg &amp; data rates may apply. Reply STOP to opt out.</span>
       </li>
       <li>Reply <span class="kw">STOP</span> to receive:
         <span class="sms">Krattley Labs: You've been unsubscribed and will not receive more messages. Reply START to resubscribe.</span>
